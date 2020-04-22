@@ -31,6 +31,7 @@ create table orders (
 
 create table users (
     user_id number primary key,
+    user_account varchar2(20),
     user_password varchar2(20),
     user_address varchar2(500),
     user_tell varchar2(20),
