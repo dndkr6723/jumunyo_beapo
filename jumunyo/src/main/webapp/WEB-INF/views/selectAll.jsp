@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<!-- 여기는 견본 페이지 -->
+
 <c:forEach var="user" items="${list}">
 	${user.user_name} <br>
 </c:forEach>

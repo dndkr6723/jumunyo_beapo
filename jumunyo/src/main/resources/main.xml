@@ -96,15 +96,18 @@
 	<resultMap type="roomVo" id="roommap">
 		<result property="room_id" column="room_id"/>
 		<result property="room_number" column="room_number"/>
-		<result property="category_name" column="category_name"/>
-		<result property="category_name" column="category_name"/>
+		<result property="restaurant_id" column="restaurant_id"/>
+		<result property="room_check" column="room_check"/>
 	</resultMap>
 	
-	<resultMap type="categoryVo" id="categorymap">
+	<resultMap type="seatorderVo" id="seatordermap">
+		<result property="seat_order_id" column="seat_order_id"/>
+		<result property="reservation_time" column="reservation_time"/>
+		<result property="restaurant_id" column="restaurant_id"/>
+		<result property="user_id" column="user_id"/>
 		<result property="room_id" column="room_id"/>
-		<result property="category_name" column="category_name"/>
-		<result property="category_name" column="category_name"/>
-		<result property="category_name" column="category_name"/>
+		<result property="order_id" column="order_id"/>
+		<result property="request" column="request"/>
 	</resultMap>
 
  	<!-- <select id="select" parameterType="userVo" resultMap="usermap">		윗쪽의 id map 을  이쪽의  resultmap 에 대응
