@@ -1,0 +1,110 @@
+
+create table restaurants (
+    restaurant_id number primary key,
+    user_id number,
+    restaurant_name varchar2(20),
+    restaurant_tell varchar2(20),
+    restaurant_address varchar2(500),
+    restaurant_owner varchar2(20),
+    restaurant_businessNumber number,
+    restaurant_businessNumber_Img varchar2(20),
+    category_id number,
+    restaurant_accept number,
+    restaurant_grade binary_double,
+    restaurant_date date default sysdate,
+    latitude number,
+    longitude number,
+    foreign key (user_id) references users(user_id)
+);
+
+create table orders (
+    order_id number primary key,
+    user_id number,
+    restaurant_name varchar2(20),
+    order_price number,
+    order_confirm varchar2(20),
+    order_date date default sysdate,
+    menu_list varchar2(20),
+    order_type varchar2(20),
+    review_check number
+);
+
+create table users (
+    user_id number primary key,
+    user_password varchar2(20),
+    user_address varchar2(500),
+    user_tell varchar2(20),
+    user_nickname varchar2(20),
+    user_name varchar2(20),
+    user_level number default 2,
+    user_point number,
+    user_email varchar2(20),
+    user_date date default sysdate
+);
+
+create table menus (
+    menu_id number primary key,
+    menu_name varchar2(20),
+    menu_price number,
+    menu_description varchar2(500),
+    menu_image varchar2(20),
+    restaurant_id number
+);
+
+create table rooms (
+    room_id number primary key,
+    room_number number,
+    restaurant_id number,
+    room_check number
+);
+
+create table seat_orders (
+    seat_order_id number primary key,
+    reservation_time date default sysdate,
+    restaurant_id number,
+    user_id number,
+    room_id number,
+    order_id number,
+    request varchar2(20)
+);
+
+create table categories (
+    category_id number primary key,
+    category_name varchar2(20)
+);
+
+create table reviews (
+    review_id number primary key,
+    review_content varchar2(500),
+    review_date date default sysdate,
+    review_grade binary_double,
+    user_id number,
+    restaurant_id number
+);
+
+create table replies (
+    review_id number primary key,
+    restaurant_id number,
+    reply_content varchar2(500),
+    reply_date date default sysdate
+);
+
+create table questions (
+    question_id number primary key,
+    question_category_id number,
+    user_id_send number,
+    question_title varchar2(20),
+    question_image varchar2(20),
+    question_check varchar2(20),
+    question_date date default sysdate,
+    user_id_receive number
+);
+
+create table question_categories (
+    question_category_id number primary key,
+    question_category_name varchar2(20)
+);
+
+alter session set nls_date_format = 'DD/MM/RR HH:MI:SS';
+
+commit;
