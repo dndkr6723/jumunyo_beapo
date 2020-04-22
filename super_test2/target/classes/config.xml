@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.mycom.myap.TestVO" alias="testVo"></typeAlias>
+		<!-- <typeAlias type="com.mycom.myap.BbsDTO" alias="BbsDto"></typeAlias>
+		<typeAlias type="com.mycom.myap.ProductDTO" alias="ProductDto"></typeAlias>
+		<typeAlias type="com.mycom.myap.ReplyDTO" alias="replyDto"></typeAlias> -->
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="test.xml" />
+		<!-- <mapper resource="bbs.xml" />
+		<mapper resource="product.xml" />
+		<mapper resource="reply.xml" /> -->
+	</mappers>
+</configuration>
