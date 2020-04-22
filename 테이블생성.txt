@@ -109,3 +109,5 @@ create table question_categories (
 alter session set nls_date_format = 'DD/MM/RR HH:MI:SS';
 
 commit;
+
+ㅁㅁㅁ
