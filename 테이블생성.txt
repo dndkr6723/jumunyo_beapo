@@ -95,6 +95,7 @@ create table questions (
     question_category_id number,
     user_id_send number,
     question_title varchar2(20),
+    question_content varchar2(1000),
     question_image varchar2(20),
     question_check varchar2(20),
     question_date date default sysdate,
