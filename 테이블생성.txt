@@ -20,7 +20,7 @@ create table restaurants (
 create table orders (
     order_id number primary key,
     user_id number,
-    restaurant_name varchar2(20),
+    restaurant_id number,
     order_price number,
     order_confirm varchar2(20),
     order_date date default sysdate,
