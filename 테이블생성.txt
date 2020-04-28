@@ -109,4 +109,62 @@ create table question_categories (
 
 alter session set nls_date_format = 'DD/MM/RR HH:MI:SS';
 
+04/28 시퀸스 생성 sql 문 
+
+CREATE SEQUENCE restaurants_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE users_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE orders_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE menus_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE rooms_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE seat_orders_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE categories_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE reviews_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE replies_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE questions_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+CREATE SEQUENCE question_categories_seq
+START with 1
+increMent by 1
+nomaxvalue;
+
+
 commit;
