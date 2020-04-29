@@ -2,12 +2,12 @@
 create table restaurants (
     restaurant_id number primary key,
     user_id number,
-    restaurant_name varchar2(20),
-    restaurant_tell varchar2(20),
+    restaurant_name varchar2(1000),
+    restaurant_tell varchar2(1000),
     restaurant_address varchar2(500),
-    restaurant_owner varchar2(20),
+    restaurant_owner varchar2(1000),
     restaurant_businessNumber number,
-    restaurant_businessNumber_Img varchar2(20),
+    restaurant_businessNumber_Img varchar2(1000),
     category_id number,
     restaurant_accept number,
     restaurant_grade binary_double,
@@ -22,10 +22,10 @@ create table orders (
     user_id number,
     restaurant_id number,
     order_price number,
-    order_confirm varchar2(20),
+    order_confirm varchar2(1000),
     order_date date default sysdate,
-    menu_list varchar2(20),
-    order_type varchar2(20),
+    menu_list varchar2(1000),
+    order_type varchar2(1000),
     review_check number
 );
 
@@ -45,10 +45,10 @@ create table users (
 
 create table menus (
     menu_id number primary key,
-    menu_name varchar2(20),
+    menu_name varchar2(1000),
     menu_price number,
-    menu_description varchar2(500),
-    menu_image varchar2(20),
+    menu_description varchar2(1000),
+    menu_image varchar2(1000),
     restaurant_id number
 );
 
@@ -66,17 +66,17 @@ create table seat_orders (
     user_id number,
     room_id number,
     order_id number,
-    request varchar2(20)
+    request varchar2(1000)
 );
 
 create table categories (
     category_id number primary key,
-    category_name varchar2(20)
+    category_name varchar2(1000)
 );
 
 create table reviews (
     review_id number primary key,
-    review_content varchar2(500),
+    review_content varchar2(1000),
     review_date date default sysdate,
     review_grade binary_double,
     user_id number,
@@ -94,17 +94,17 @@ create table questions (
     question_id number primary key,
     question_category_id number,
     user_id_send number,
-    question_title varchar2(20),
+    question_title varchar2(1000),
     question_content varchar2(1000),
-    question_image varchar2(20),
-    question_check varchar2(20),
+    question_image varchar2(1000),
+    question_check varchar2(1000),
     question_date date default sysdate,
     user_id_receive number
 );
 
 create table question_categories (
     question_category_id number primary key,
-    question_category_name varchar2(20)
+    question_category_name varchar2(1000)
 );
 
 alter session set nls_date_format = 'DD/MM/RR HH:MI:SS';
