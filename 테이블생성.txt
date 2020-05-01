@@ -168,3 +168,7 @@ nomaxvalue;
 
 
 commit;
+
+
+//5월1일  : reviews table -> order_id (NUMBER) 추가 필요함 -> VO 수정 필요 
+            orders table 참조
