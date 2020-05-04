@@ -172,4 +172,5 @@ commit;
 
 //5월1일  : 
         1. reviews table -> order_id (NUMBER) 추가 필요함 -> VO 수정 필요  (orders table 참조)
-        2.  reviews table -> 리뷰체크 칼럼 추가 필요함 -> VO 수정 필요
+        2.  reviews table -> 리뷰체크(review_check) 칼럼 추가 필요함 -> VO 수정 필요 (작성: 1 / 미작성 : 0)
+        3. reviews table -> 리뷰 이미지 칼럼(review_img) 추가 필요함 ->  VO 수정 필요
