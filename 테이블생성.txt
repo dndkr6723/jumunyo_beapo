@@ -107,7 +107,7 @@ create table question_categories (
     question_category_name varchar2(1000)
 );
 
-alter session set nls_date_format = 'DD/MM/RR HH:MI:SS';
+alter session set nls_date_format = 'YY/MM/DD HH24:MI:SS';
 
 04/28 시퀸스 생성 sql 문 
 
@@ -174,3 +174,6 @@ commit;
         1. reviews table -> order_id (NUMBER) 추가 필요함 -> VO 수정 필요  (orders table 참조)
         2.  reviews table -> 리뷰체크(review_check) 칼럼 추가 필요함 -> VO 수정 필요 (작성: 1 / 미작성 : 0)
         3. reviews table -> 리뷰 이미지 칼럼(review_img) 추가 필요함 ->  VO 수정 필요
+
+// 5월5일
+        1. 날짜 출력방식 alter session set nls_date_format = 'YY/MM/DD HH24:MI:SS'; 로 
