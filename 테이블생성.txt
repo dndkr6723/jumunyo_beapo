@@ -1,26 +1,42 @@
+create table questions (
+    question_id number primary key,
+    question_category_id number UNIQUE,
+    user_id_send number,
+    question_title varchar2(1000),
+    question_content varchar2(1000),
+    question_image varchar2(1000),
+    question_check varchar2(1000),
+    question_date date default sysdate,
+    user_id_receive number
+);
 
+
+create table question_categories (
+    question_category_id number primary key,
+    question_category_name varchar2(1000)
+);
+    
 create table restaurants (
     restaurant_id number primary key,
-    user_id number,
+    user_id number UNIQUE,
     restaurant_name varchar2(1000),
     restaurant_tell varchar2(1000),
     restaurant_address varchar2(500),
     restaurant_owner varchar2(1000),
-    restaurant_businessNumber number,
+    restaurant_businessNumber number UNIQUE,
     restaurant_businessNumber_Img varchar2(1000),
-    category_id number,
+    category_id number UNIQUE,
     restaurant_accept number,
     restaurant_grade binary_double,
     restaurant_date date default sysdate,
     latitude number,
-    longitude number,
-    foreign key (user_id) references users(user_id)
+    longitude number
 );
 
 create table orders (
     order_id number primary key,
-    user_id number,
-    restaurant_id number,
+    user_id number UNIQUE,
+    restaurant_id number UNIQUE,
     order_price number,
     order_confirm varchar2(1000),
     order_date date default sysdate,
@@ -31,15 +47,15 @@ create table orders (
 
 create table users (
     user_id number primary key,
-    user_account varchar2(20),
-    user_password varchar2(20),
+    user_account varchar2(100) UNIQUE,
+    user_password varchar2(100),
     user_address varchar2(500),
-    user_tell varchar2(20),
-    user_nickname varchar2(20),
-    user_name varchar2(20),
+    user_tell varchar2(500),
+    user_nickname varchar2(20) UNIQUE,
+    user_name varchar2(100),
     user_level number default 2,
     user_point number,
-    user_email varchar2(4000),
+    user_email varchar2(4000) UNIQUE,
     user_date date default sysdate
 );
 
@@ -49,29 +65,29 @@ create table menus (
     menu_price number,
     menu_description varchar2(1000),
     menu_image varchar2(1000),
-    restaurant_id number
+    restaurant_id number UNIQUE
 );
 
 create table rooms (
     room_id number primary key,
     room_number number,
-    restaurant_id number,
+    restaurant_id number UNIQUE,
     room_check number
 );
 
 create table seat_orders (
     seat_order_id number primary key,
     reservation_time date default sysdate,
-    restaurant_id number,
-    user_id number,
-    room_id number,
-    order_id number,
+    restaurant_id number UNIQUE,
+    user_id number UNIQUE,
+    room_id number UNIQUE,
+    order_id number UNIQUE,
     request varchar2(1000)
 );
 
 create table categories (
     category_id number primary key,
-    category_name varchar2(1000)
+    category_name varchar2(1000) UNIQUE
 );
 
 create table reviews (
@@ -79,37 +95,24 @@ create table reviews (
     review_content varchar2(1000),
     review_date date default sysdate,
     review_grade binary_double,
-    user_id number,
-    restaurant_id number
+    user_id number UNIQUE,
+    restaurant_id number UNIQUE,
+    review_check number,
+    review_img varchar(2000),
+    order_id number UNIQUE
 );
 
 create table replies (
     review_id number primary key,
-    restaurant_id number,
+    restaurant_id number UNIQUE,
     reply_content varchar2(500),
     reply_date date default sysdate
 );
 
-create table questions (
-    question_id number primary key,
-    question_category_id number,
-    user_id_send number,
-    question_title varchar2(1000),
-    question_content varchar2(1000),
-    question_image varchar2(1000),
-    question_check varchar2(1000),
-    question_date date default sysdate,
-    user_id_receive number
-);
-
-create table question_categories (
-    question_category_id number primary key,
-    question_category_name varchar2(1000)
-);
 
 alter session set nls_date_format = 'YY/MM/DD HH24:MI:SS';
 
-04/28 시퀸스 생성 sql 문 
+--04/28 시퀸스 생성 sql 문 
 
 CREATE SEQUENCE restaurants_seq
 START with 1
@@ -174,6 +177,3 @@ commit;
         1. reviews table -> order_id (NUMBER) 추가 필요함 -> VO 수정 필요  (orders table 참조)
         2.  reviews table -> 리뷰체크(review_check) 칼럼 추가 필요함 -> VO 수정 필요 (작성: 1 / 미작성 : 0)
         3. reviews table -> 리뷰 이미지 칼럼(review_img) 추가 필요함 ->  VO 수정 필요
-
-// 5월5일
-        1. 날짜 출력방식 alter session set nls_date_format = 'YY/MM/DD HH24:MI:SS'; 로 
