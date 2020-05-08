@@ -54,7 +54,7 @@ create table users (
     user_nickname varchar2(20) UNIQUE,
     user_name varchar2(100),
     user_level number default 2,
-    user_point number,
+    user_point number default 2000,
     user_email varchar2(4000) UNIQUE,
     user_date date default sysdate
 );
